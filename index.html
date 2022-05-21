@@ -479,30 +479,40 @@
                 <div class="row content">
                     <div class="col col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                         <p>Please reserve before December 16th, 2017.</p>
-                        <form method="get" class="wdp-form wdp-wa-form" id="wdp-wa-form-1b25c185" data-waapi="https://api.whatsapp.com/send?phone=62882137768446&amp;text=Hai%2C%20saya%20%25nama%25%20ingin%20konfirmasi%20kehadiran%20pada%20undangan%20pernikahan%20digital%20bahwa%20%25option%25%20dengan%20%25jumlah%25%20orang%20bersama%20saya.%20Saya%20ucapkan%3A%20%20_%2A%25pesan%25%2A_.%20Terima%20kasih%20ya.">
-                            <div class="wdp-form-fields-wrapper">
-                                <div class="wdp-form-field-nama">
-                                    <label for="wdp-form-nama-1b25c185" class="elementor-screen-only">
-                                        Nama                        </label>
-                                    <input type="text" name="wdp-form-nama" class="wdp-form-nama" id="wdp-form-nama-1b25c185" placeholder="Isikan Nama Anda" required="1" value="">
-                                </div>
-                                    <div class="wdp-form-field-jumlah">
-                                        <label for="wdp-form-jumlah-1b25c185" class="elementor-screen-only">Jumlah</label>
-                                        <input name="wdp-form-jumlah" class="wdp-form-jumlah" id="wdp-form-jumlah-1b25c185" type="text" placeholder="Jumlah Yang Akan Hadir" required="1" value="">
-                                    </div>
-                                    <div class="wdp-form-field-pesan">
-                                        <label for="wdp-form-pesan-1b25c185" class="elementor-screen-only">Pesan</label>
-                                        <textarea name="wdp-form-pesan" class="wdp-form-pesan" id="wdp-form-pesan-1b25c185" rows="4" placeholder="Berikan Pesan dan Doa Restu" required="1"></textarea>
-                                    </div>
-                                <div class="wdp-form-field-option wdp-option-type-radio">
-                                    <label for="wdp-form-option-1b25c185 wdp-form-option-1b25c185" class=" ">Konfirmasi</label>
-                                    <label class="to-select-option"><input type="radio" name="wdp-form-option wdp-form-option" class="wdp-form-option wdp-form-option" required="1" id="wdp-form-option-1b25c1851" value="Iya, Saya akan Datang"> Iya, Saya akan Datang</label>
-                                    <label class="to-select-option"><input type="radio" name="wdp-form-option wdp-form-option" class="wdp-form-option wdp-form-option" required="1" id="wdp-form-option-1b25c1851 wdp-form-option-1b25c1852" value="Saya Masih Ragu"> Saya Masih Ragu</label>
-                                    <label class="to-select-option"><input type="radio" name="wdp-form-option wdp-form-option" class="wdp-form-option wdp-form-option" required="1" id="wdp-form-option-1b25c1851 wdp-form-option-1b25c1852 wdp-form-option-1b25c1853" value="Maaf, Saya Tidak Bisa Datang"> Maaf, Saya Tidak Bisa Datang</label>
-                                </div>
-                                <div class="wdp-form-field-submit">
-                                    <button type="submit" class="wdp-form-button">Konfirmasi via Whatsapp</button>
-                                </div>
+                        <form id="rsvp-form" class="form validate-rsvp-form row" method="post">
+                            <div class="col col-sm-6">
+                                <input type="text" name="name" class="form-control" placeholder="Your Name*">
+                            </div>
+                            <div class="col col-sm-6">
+                                <input type="email" name="email" class="form-control" placeholder="Your Email*">
+                            </div>
+                            <div class="col col-sm-6">
+                                <select class="form-control" name="guest" >
+                                    <option disabled selected>Number Of Guest*</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                </select>
+                            </div>
+                            <div class="col col-sm-6">
+                                <select class="form-control" name="events" >
+                                    <option disabled selected>I Am Attending*</option>
+                                    <option>Al events</option>
+                                    <option>Wedding ceremony</option>
+                                    <option>Reception party</option>
+                                </select>
+                            </div>
+                            <div class="col col-sm-12">
+                                <textarea class="form-control" name="notes" placeholder="Your Message*"></textarea>
+                            </div>
+                            <div class="col col-sm-12 submit-btn">
+                                <button type="submit" class="submit">Send Invitation</button>
+                                <span id="loader"><i class="fa fa-refresh fa-spin fa-3x fa-fw"></i></span>
+                            </div>
+                            <div class="col col-md-12 success-error-message">
+                                <div id="success">Thank you</div>
+                                <div id="error"> Error occurred while sending email. Please try again later. </div>
                             </div>
                         </form>
                     </div>
