@@ -45,6 +45,100 @@
 </head>
 
 <body id="home">
+    <!-- overlay cover page-->
+    <script src="js/Jquery.min.cover.js"></script>
+
+<style type="text/css">
+	.modalx{
+	    position: fixed;
+	    z-index: 2000;
+	    width: 100%;
+	    height: 100vh;
+	    top:0;
+	    left:0;
+	    background-color: transparent;
+	    background-size: cover;
+	    background-position: center;
+	    background-repeat: no-repeat;
+	    transform: translateY(0)
+	    
+	}
+	.overlayy{
+	    background-color: #000;
+	    position:relative;
+	    width: 100%;
+	    height: 100%;
+	    z-index: 2001;
+	    top:0;
+	    opacity: 0.8;
+	    left: 0;
+	    
+	}
+	.content-modalx{
+	    background-color: transparent;
+	    position:absolute;
+	    width: 100%;
+	    height: 100%;
+	    z-index: 2002;
+	    top:0;
+	    color:WHITE;
+	    left: 0;
+	    
+	}
+	.info_modalx{
+	    margin:150px auto;
+	    width: 90%;
+	    display: flex;
+	    height: auto;
+	    flex-direction: column;
+	    justify-content: center;
+	    
+	}
+	.info_modalx{
+	    width: 100%;
+	    text-align: center;
+	    height: auto;
+	    margin-bottom: 30px;
+	    
+	}
+	.info_title{
+	    font-family: "Poppins";
+	    font-size: 50px;
+	    font-weight: 300;
+	    
+	}
+	.info_button button{
+	    background-color: #E57F85;
+	    font-family: "Poppins";
+	    font-weight: 400;
+	    color: #FFFFFF;
+	    border:none;
+	    padding:15px 50px;
+	    font-size: 15px;
+	    border-radius: 100px;
+	    cursor: pointer;
+	    outline: none;
+	}
+	.removeModals{
+	    transform: translateY(100%);
+	    transition: 1s ease-in-out;
+	    
+	}
+</style>
+
+<div class="modalx" data-sampul="images/slider/slide-2.JPG">
+    <div class="overlayy"></div>
+	<div class="content-modalx">
+		<div class="info_modalx">
+			<div class="info_title">Bella & Ian</div><br>
+<p style="text-align: center;"><span style="color: #ffffff;">Tanpa Mengurangi Rasa Hormat, Kami Mengundang Anda<br>Untuk Hadir Di Acara Pernikahan Kami.</span></p><br><br>
+			<div class="info_button">
+				<button><i class="fa fa-envelope-open"></i> Buka Undangan</button>
+			</div>
+		</div>
+	</div>
+</div>
+    <!--end of overlay cover-->
 
     <!-- start page-wrapper -->
     <div class="page-wrapper">
@@ -64,7 +158,10 @@
             </button>
 
             <div class="music-holder">
-                <iframe src="music/music-oi.mp3" autoplay="true"></iframe>
+                <center><audio id="song" autoplay="" controls="" loop="">
+                    <source src="music/music-oi.mp3">
+                   </audio></center>
+                   
             </div>
         </div>
         <!-- end music box -->
@@ -175,7 +272,7 @@
                                     <div class="img-holder wow fadeInUpSlow">
                                         <img src="images/couple/ortu-bride.jpg" alt>
                                     </div>
-                                    <p>Hi I am Isabella Carissa Fibriyanti. 1 Corinthians 13:13. "And now these three remain: faith, hope, and love. But the greatest of these is love."</p>
+                                    <p>Hi I am Isabella Carissa Febriyanti. 1 Corinthians 13:13. "And now these three remain: faith, hope, and love. But the greatest of these is love."</p>
                                     <span class="signature">Bella</span>
                                     <ul class="social-links">
                                         <li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -233,8 +330,8 @@
                                 <div class="col col-md-6">
                                     <div class="story-text right-align-text">
                                         <h3>First meet</h3>
-                                        <span class="date">November 11th 2021</span>
-                                        <p>we met each other at a place we couldn't imagine. I was borrowing my friend's bathroom because mine was broken. So sudden she appeared in front of me when I was not so ready. It was an awkward moment we had. We introduced ourselves and we followed each other by instagram. After that we sent message through Direct Message of Instagram.</p>
+                                        <span class="date">Jan 12 2017</span>
+                                        <p>we met each other at a place we couldn't imagine. I was borrowing my friend's bathroom because mine was broken. So sudden Bella appeared in front of me when I was not so ready. It was an awkward moment we had.</p>
                                     </div>
                                 </div>
                                 <div class="col col-md-6">
@@ -533,5 +630,16 @@
 
     <!-- Custom script for this template -->
     <script src="js/script.js"></script>
+
+    <script>
+        const sampul = jQuery('.modalx').data('sampul');
+        jQuery('.modalx').css('background-image','url('+sampul+')');
+        jQuery('body').css('overflow','hidden');
+        jQuery('.info_button button').on('click',function(){
+        jQuery('.modalx').addClass('removeModals');
+        jQuery('body').css('overflow','auto');
+        document.getElementById("song").play();
+        });
+    </script>
 </body>
 </html>
