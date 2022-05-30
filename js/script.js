@@ -470,7 +470,7 @@
         = COUNTDOWN CLOCK
     -------------------------------------------*/
     if ($("#clock").length) {
-        $('#clock').countdown('2022/12/25', function(event) {
+        $('#clock').countdown('2022/8/30', function(event) {
             var $this = $(this).html(event.strftime(''
             + '<div class="box"><div>%D</div> <span>Days</span> </div>'
             + '<div class="box"><div>%H</div> <span>Hours</span> </div>'
@@ -519,64 +519,6 @@
                     items: 3
                 }
             }
-        });
-    }
-
-
-    /*------------------------------------------
-        = RSVP FORM SUBMISSION
-    -------------------------------------------*/
-    if ($("#rsvp-form").length) {
-        $("#rsvp-form").validate({
-            rules: {
-                name: {
-                    required: true,
-                    minlength: 2
-                },
-                email: "required",
-
-                guest: {
-                    required: true
-                },
-
-                events: {
-                    required: true
-                }
-
-            },
-
-            messages: {
-                name: "Please enter your name",
-                email: "Please enter your email",
-                guest: "Select your number of guest",
-                events: "Select your event list"
-            },
-
-            submitHandler: function (form) {
-                $("#loader").css("display", "inline-block");
-                $.ajax({
-                    type: "POST",
-                    url: "mail.php",
-                    data: $(form).serialize(),
-                    success: function () {
-                        $( "#loader").hide();
-                        $( "#success").slideDown( "slow" );
-                        setTimeout(function() {
-                        $( "#success").slideUp( "slow" );
-                        }, 3000);
-                        form.reset();
-                    },
-                    error: function() {
-                        $( "#loader").hide();
-                        $( "#error").slideDown( "slow" );
-                        setTimeout(function() {
-                        $( "#error").slideUp( "slow" );
-                        }, 3000);
-                    }
-                });
-                return false; // required to block normal submit since you used ajax
-            }
-
         });
     }
 
